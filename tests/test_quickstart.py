@@ -2,8 +2,12 @@ from bottle import tob
 from .bottle_tools import ServerTestBase
 from tests.examples import quickstart
 import unittest
-from urllib.parse import unquote
-from urllib.parse import parse_qs
+try:
+    from urllib.parse import unquote
+    from urllib.parse import parse_qs
+except:
+    from urllib import unquote
+    from urlparse import parse_qs
 
 
 class test_quickstart(ServerTestBase):
